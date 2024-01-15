@@ -11,7 +11,8 @@ const mimeTypes = {                                                             
   "jpg": "image/jpg",                                                                  // ... and jpg images
   "png": "image/png",                                                                  // ... and png images
 }        
-
+let  andolinoFirstName = 'Chuck';
+console.log(`Mr. Andolinos first name is ${andolinoFirstName}.`);
 http.createServer(function(req, res) {                                             // Then, you want to create a server
 	let uri = url.parse(req.url).pathname; 
   if (uri == '/discover.html') {
