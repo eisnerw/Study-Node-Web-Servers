@@ -13,7 +13,13 @@ const mimeTypes = {                                                             
 }        
 
 http.createServer(function(req, res) {                                             // Then, you want to create a server
-	let uri = url.parse(req.url).pathname;                                              // use the url module and convert request.url into an object, and then get the path name and store as "uri"  
+	let uri = url.parse(req.url).pathname; 
+  if (uri == '/discover.html') {
+    res.writeHead(200, {'Content-type': 'text/html'});
+    res.write('<h1>You made it to discover</h1>');
+    res.end();
+    return;     
+  }                                            // use the url module and convert request.url into an object, and then get the path name and store as "uri"  
   let fileName = path.join(process.cwd(), unescape(uri));                               // use the path module and join with two arguments: "process.cwd" returns string for current working directory and decondeURI to decode uri  
   console.log('Loading' + uri);                                                        // then log to console the uri begin loaded.
   let stats;
